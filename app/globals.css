@@ -1,0 +1,361 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --background: #f7f8f5;
+  --foreground: #183b35;
+  --trip-green: #174b40;
+  --trip-green-2: #397c65;
+  --trip-sand: #d68b55;
+  --trip-mint: #e9f1e9;
+  --trip-line: #e3e9df;
+  --trip-muted: #6b7280;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 18px;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--trip-green-2);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #cde4d7;
+  color: #183b35;
+}
+
+.hero-illustration {
+  position: relative;
+  min-width: 0;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(#cfe5ea 0, #e9f1e9 55%, #bcd6c5 55%);
+  box-shadow: 0 18px 40px rgb(23 75 64 / 9%);
+}
+
+.hero-illustration svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Transport comparison component */
+.transport-panel,
+.transport-panel * {
+  box-sizing: border-box;
+}
+
+.transport-panel {
+  display: block;
+  width: 100%;
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #fff;
+  color: #183b35;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgb(23 75 64 / 5%);
+}
+
+.transport-heading {
+  margin-bottom: 20px;
+}
+
+.transport-heading h2 {
+  margin: 0 0 8px;
+  color: var(--trip-green);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.transport-heading p:not(.transport-eyebrow) {
+  margin: 0;
+  color: #64748b;
+}
+
+.transport-eyebrow {
+  margin: 0 0 8px;
+  color: #c9824b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.transport-notice {
+  margin: 20px 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #fffbeb;
+  color: #92400e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.transport-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.transport-card {
+  display: flex !important;
+  min-width: 0;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #fff;
+  color: #183b35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.transport-card:hover {
+  border-color: #0d9488;
+  transform: translateY(-2px);
+}
+
+.transport-card.transport-selected {
+  border: 2px solid #0d9488;
+  padding: 17px;
+  background: #f0fdfa;
+}
+
+.transport-icon {
+  font-size: 28px;
+}
+
+.transport-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.transport-price {
+  overflow-wrap: anywhere;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.transport-per-person,
+.transport-description,
+.transport-comfort,
+.transport-time {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.transport-select-label {
+  margin-top: auto;
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.transport-selected-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #f7f8f5;
+  font-size: 14px;
+}
+
+/* Save trip component */
+.save-trip-panel {
+  box-sizing: border-box;
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #e2e8df;
+  border-radius: 22px;
+  background: #fff;
+  color: #183b35;
+  box-shadow: 0 8px 24px rgb(23 75 64 / 5%);
+}
+
+.save-trip-eyebrow {
+  margin: 0 0 8px;
+  color: #c9824b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.save-trip-panel h2 {
+  margin: 0 0 8px;
+  color: var(--trip-green);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.save-trip-panel > div:first-child > p:last-child {
+  color: #64748b;
+}
+
+.save-trip-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.save-trip-details > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f7f8f5;
+}
+
+.save-trip-details span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.save-trip-details strong {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.save-trip-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.save-trip-actions button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #0f766e;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.save-trip-actions button:hover {
+  background: #115e59;
+}
+
+.save-trip-message {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.save-trip-note {
+  margin-top: 16px;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .transport-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .save-trip-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-illustration {
+    height: 260px;
+    border-radius: 20px;
+  }
+
+  .transport-panel,
+  .save-trip-panel {
+    padding: 18px;
+  }
+
+  .transport-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .transport-selected-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .save-trip-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
